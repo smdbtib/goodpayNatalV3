@@ -13,8 +13,7 @@ function adicionarBloco(){
     document.getElementById(`cardTexto${index+1}`).innerHTML = cards.body;
     document.getElementById(`cardRodape${index+1}`).innerHTML = cards.date;
 });
-    
-   setTimeout(adicionarBloco, 2000); true 
+   setTimeout(adicionarBloco, 90000); true 
 }
  
 
