@@ -2,32 +2,21 @@ import controlerUserLogin from "./moduloControlerLogin.js";
 import controleRotasApp from "./moduloControleRotas.js";
 import cardsBuilder from "./moduloControlerCards.js";
 
+/* ADD DE CARDS */
 adicionarBloco();
-
 function adicionarBloco(){
-    let blocoCards = cardsBuilder.addCards(cardsBuilder.selectCategoria());
-
-    document.getElementById("cardImagem1").innerHTML = `
-    <img src="${blocoCards[0].img}" class="card-img-top"/>`
-    document.getElementById("cardTitulo1").innerHTML = blocoCards[0].title;
-    document.getElementById("cardTexto1").innerHTML = blocoCards[0].body;
-    document.getElementById("cardRodape1").innerHTML = blocoCards[0].date;
-
-    document.getElementById("cardImagem2").innerHTML = `
-    <img src="${blocoCards[1].img}" class="card-img-top"/>`
-    document.getElementById("cardTitulo2").innerHTML = blocoCards[1].title;
-    document.getElementById("cardTexto2").innerHTML = blocoCards[1].body;
-    document.getElementById("cardRodape2").innerHTML = blocoCards[1].date;
-
-    document.getElementById("cardImagem3").innerHTML = `
-    <img src="${blocoCards[2].img}" class="card-img-top"/>`
-    document.getElementById("cardTitulo3").innerHTML = blocoCards[2].title;
-    document.getElementById("cardTexto3").innerHTML = blocoCards[2].body;
-    document.getElementById("cardRodape3").innerHTML = blocoCards[2].date;
+    let blocoCards = cardsBuilder.addCards();
+    blocoCards.forEach((cards, index) => {
+    document.querySelector(`#cardImagem${index+1}`).innerHTML = `
+    <img src="${cards.img}" class="card-img-top"/>`
+    document.getElementById(`cardTitulo${index+1}`).innerHTML = cards.title;
+    document.getElementById(`cardTexto${index+1}`).innerHTML = cards.body;
+    document.getElementById(`cardRodape${index+1}`).innerHTML = cards.date;
+});
     
-    setTimeout(adicionarBloco,2000);
+   setTimeout(adicionarBloco, 2000); true 
 }
-
+ 
 
 //Trazendo elementos do Bootstrap para uso da main Javascript.
 var myModal = new bootstrap.Modal(document.getElementById('myModal'))
