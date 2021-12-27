@@ -15,7 +15,6 @@ class CardsBuilder{
     addCards(){ 
         let categoria = this.selectCategoria()
         const filtroBloco = cards.filter((cards)=> cards.categoria === categoria);
-        console.log(filtroBloco);
         return filtroBloco;
     } 
 }
